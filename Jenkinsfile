@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry-1.docker.io', 'roseaw-dockerhub') {
-                        docker.build("${DOCKER_IMAGE}:${IMAGE_TAG}")
+                        docker.build("${DOCKER_IMAGE}:${IMAGE_TAG}", "-f Dockerfile.build .")
                     }
                 }
             }
